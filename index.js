@@ -1,10 +1,9 @@
-import CVDefault from "/scripts/cv.js";
-
 /*
  * DECLARATIONS
  */
 let contentAdderInstance;
-const button_ids = ["cv-puter", "blog-puter", "nw4", "omega-psi", "co-re"]
+const button_ids = ["cv-puter_0", "blog-puter_0", "nw4_0", "omega-psi_0", "co-re_0",
+                    "cv-puter_1", "blog-puter_1", "nw4_1", "omega-psi_1", "co-re_1"]
 const kbityArray = [
   "assets/images/KBITY_TRANSEDEN_TEAL_HEHE_.png",
   "assets/images/kbity-antinihility-black.png",
@@ -105,19 +104,20 @@ case "/":
   kbity_r.addEventListener("click", () => { kbity_r.src = kbityRandomizer(); });
 
   let buttons = Array();
+
   button_ids.forEach((id_str) => {
     buttons.push(document.getElementById(id_str));
   });
+  
   buttons.forEach((butt) => {
+    const id = butt.id;
     butt.addEventListener("click", () => {
-      window.location = window.origin + "/views-pages/" + butt.id + ".html";
-      console.log(window.origin + "/views-pages/" + butt.id + ".html")
+      window.location = window.origin + "/view/" + id.substring(-2, id.length - 2) + ".html";
+      console.log(window.origin + "/view/" + id.substring(-2, id.length - 2) + ".html")
     })
-  })
+  });
+
   break;
-case "/views-pages/cv-puter.html":
-  let CV = new CVDefault();
-  console.log(CV.test);
 }
 
 // Shoutout to Vim motions girls (myself including)
