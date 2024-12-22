@@ -111,8 +111,7 @@ if (window.location.pathname == "/") {
   buttons.forEach((butt) => {
     const id = butt.id;
     butt.addEventListener("click", () => {
-      window.location = window.origin + "/view/" + id.substring(-2, id.length - 2) + ".html";
-      console.log(window.origin + "/view/" + id.substring(-2, id.length - 2) + ".html")
+      window.location = window.location.origin + "/view/" + id.substring(-2, id.length - 2) + ".html";
     })
   });
 } else {
@@ -134,14 +133,13 @@ if (window.location.pathname == "/") {
   subpage_buttons.forEach((butt) => {
     const id = butt.id;
     butt.addEventListener("click", () => {
-      window.location = window.origin + "/view/" + id + ".html";
-     console.log(window.origin + "/view/" + id + ".html")
+      window.location = window.location.origin + "/view/" + id + ".html";
     })
   });
 
   const home_button = document.getElementById("go-home");
   home_button.addEventListener("click", () => {
-    window.location = window.origin;
+    window.location = window.location.origin;
   })
 }
 
