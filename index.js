@@ -93,8 +93,7 @@ SelectorClassAdders.saveMarginsPaddings("dl");
 SelectorClassAdders.saveMarginsPaddings("dt");
 SelectorClassAdders.saveMarginsPaddings("dd");
 
-switch (window.location.pathname) {
-case "/":
+if (window.location.pathname == "/") {
   let kbity_l = document.getElementById("kbity-left"); 
   let kbity_r = document.getElementById("kbity-right"); 
 
@@ -116,8 +115,34 @@ case "/":
       console.log(window.origin + "/view/" + id.substring(-2, id.length - 2) + ".html")
     })
   });
+} else {
+  let kbity_l = document.getElementById("kbity-left"); 
+  let kbity_r = document.getElementById("kbity-right"); 
 
-  break;
+  kbity_l.src = "../" + kbityRandomizer();
+  kbity_r.src = "../" + kbityRandomizer();
+  kbity_l.addEventListener("click", () => { kbity_l.src = "../" + kbityRandomizer(); });
+  kbity_r.addEventListener("click", () => { kbity_r.src = "../" + kbityRandomizer(); });
+
+  const subpage_button_ids = ["cv-puter", "blog-puter", "nw4", "omega-psi", "co-re"];
+  let subpage_buttons = Array();
+
+  subpage_button_ids.forEach((id_str) => {
+    subpage_buttons.push(document.getElementById(id_str));
+  });
+  
+  subpage_buttons.forEach((butt) => {
+    const id = butt.id;
+    butt.addEventListener("click", () => {
+      window.location = window.origin + "/view/" + id + ".html";
+     console.log(window.origin + "/view/" + id + ".html")
+    })
+  });
+
+  const home_button = document.getElementById("go-home");
+  home_button.addEventListener("click", () => {
+    window.location = window.origin;
+  })
 }
 
 // Shoutout to Vim motions girls (myself including)

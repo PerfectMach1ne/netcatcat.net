@@ -17,7 +17,8 @@ body {
 
   padding: 1em;
 
-  background: no-repeat url("./images/bgimg.png");
+  background: url("./images/bgimg.png");
+  background-repeat: repeat-y;
   color: white;
 
   font-family: 'Source Code Pro', Courier, monospace;
@@ -127,7 +128,7 @@ h6 {
 }
 
 div.nav-main-aside-container > nav {
-  flex: 30%;
+  flex: 25%;
   flex-flow: column wrap;
   justify-content: center;
   /* align-content: stretch; */
@@ -146,7 +147,7 @@ div.nav-main-aside-container > main {
 }
 
 div.nav-main-aside-container > aside {
-  flex: 30%;
+  flex: 25%;
   
   border: 10px solid #3797E0;
   background-color: #01002F;
