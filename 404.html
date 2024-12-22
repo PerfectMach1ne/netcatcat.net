@@ -7,6 +7,17 @@
     <title>ERR&lt;404&gt;::"Not Found"</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <script>
+      const redirects = {
+        ".git/config": "https://www.youtube.com/watch?v=Fkk9DI-8el4&t=23s",
+        ".env": "https://www.youtube.com/watch?v=Fkk9DI-8el4&t=23s",
+      }
+
+      const currentPath = window.location.pathname;
+      if (redirects[currentPath]) {
+        window.location.href = redirects[currentPath];
+      }
+    </script>
   </head>
 
   <body>
