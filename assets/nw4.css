@@ -1,0 +1,17 @@
+/* CSS! but only for netcatcat.net/view/nw4.html */
+
+div.nw4-img-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+div.nw4-img-container > img {
+  max-width: 45%;
+  max-height: 45%;
+
+  border: 16px solid;
+  border-image: url(../assets/images/old-cobble.png) round;
+  border-image-slice: 16;
+  border-image-width: 16px;
+}
