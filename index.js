@@ -43,7 +43,7 @@ class ContentAddersSingleton {
     footer.innerHTML = `
         <div class="cooler-footer">
           <footer class="footer-display">
-            <p>02.2024 - 12.2024, by LVSA</p>
+            <p>02.2024 - 01.2025, by LVSA</p>
           </footer>
         </div>
         <div class="post-footer">
