@@ -1,12 +1,40 @@
-function iterateStr(str) {
+function parseMicroMd(str) {
   const iterator = str[Symbol.iterator]();
   let char = iterator.next();
+  let newHTML = '';
+  let registers = {
+    h: 0,
+    hcl: 0
+  }
   
+  // here go mini-markdown mini-parser with char.value!
   while (!char.done && char.value !== undefined) {
-    console.log(char.value);
-    // here go mini-markdown mini-parser with char.value!
+    // console.log(char.value);
+    if (char.value == '#') {
+      registers.h += 1;
+      char = iterator.next();
+      continue;
+    } else if (char.value == ' ' && registers.h > 0) {
+      newHTML += '<h' + registers.h + '>';
+      registers.hcl = registers.h;
+      registers.h = -1;
+      char = iterator.next();
+      continue;
+    } else if (registers.h == -1 && char.value == '\n') {
+      newHTML += '</h' + registers.hcl + '>';
+      registers.h = 0;
+      registers.hcl = 0;
+    } else if (char.value != ' ' && char.value != '\n' && registers.h > 0) {
+      newHTML += '#'.repeat(registers.h);
+      registers.h = 0;
+    }
+    
+    newHTML += char.value;
     char = iterator.next()
   }
+
+  return newHTML;
+  // console.log(newHTML);
 }
 
 async function getPost() {
@@ -22,7 +50,7 @@ async function getPost() {
     .then((res) => {
       let postDiv = document.getElementById("post");
       postDiv.innerText = res;
-      iterateStr(postDiv.innerText);
+      postDiv.innerHTML = parseMicroMd(postDiv.innerText);
     });
 }
 
