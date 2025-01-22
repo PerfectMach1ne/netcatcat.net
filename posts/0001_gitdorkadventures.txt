@@ -1,0 +1,104 @@
+### Touch off with new bugs in production
+
+[hello to week 3 of 2025! starting off my new blog with a "self-referential" talk about adding things to my new public home in the web.]
+[ramble about how this webstie was made]
+[mention the "git bug" with Brazilian BIOS errors]
+[...analyze wtf happened in there!:]
+
+  405  git status
+  406  git add .
+  407  git commit -m "update view/nw4.html with content" -s; g; git push -u origin main-dev 
+  408  touch scripts/omega-psi-buttons.js
+  409  code scripts/omega-psi-buttons.js 
+  410  git status
+  411  git add .
+  412  git commit -m "add omega-psi.html content" -s; git push -u origin main-dev 
+  413  git rebase prod main-dev 
+  414  git branch 
+  415  git status
+  416  git checkout prod
+  417  git status
+  418  git push -u origin prod
+  419  git checkout main-dev 
+  420  git log
+  421  git checkout prod
+  422  git push -u origin prod
+  423  git fetch
+  424  git pull
+  425  git push -u origin prod
+  426  git checkout main-dev 
+  427  git rebase --onto prod main-dev 
+  428  git branch
+  429  git status
+  430  git diff --cached 
+  431  git diff 
+  432  git pull
+  433  git branch 
+  434  git checkout prod 
+  435  git status
+  436  git checkout main-dev 
+  437  git sstatus
+  438  git status
+  439  git config 
+  440  git branch
+  441  git checkout prod
+  442  git push -u origin prod
+  443  tree
+  444  git checkout main-dev 
+  445  tree
+  446  git rebase --abort
+  447  git log
+  448  git push
+  449  git pull\
+  450  git pull
+  451  git fetch
+  452  git pull
+  453  git merge
+  454  git config pull.rebase false
+  455  git merge
+  456  git status
+  457  git add .
+  458  git status
+  459  git merge
+  460  git commit -m "fix my rebase lol" -s
+  461  git merge
+  462  git branch 
+  463  git push -u origin main-dev 
+  464  git rebase prod main-dev 
+  465  git checkout prod 
+  466  git status
+  467  git push -u origin prod
+  468  git fetch
+  469  git merge
+  470  git checkout main-dev 
+  471  git status 
+  472  git fetch
+  473  git pull
+  474  git status
+  475  git diff --cached 
+  476  git diff
+  477  git add .
+  478  git status
+  479  git diff
+  480  git diff --cached 
+  481  git status
+  482  git add .
+  483  git status
+  484  git pull 
+  485  git pull -f
+  486  git log
+  487  git diff --cached 
+  488  git diff --cached 
+  489  git add .
+  490  git diff --cached 
+  491  git status
+  492  git pull
+  493  git status
+  494  git commit
+  495  git status
+  496  git status
+  497  git log
+  498  git push -u origin main-dev
+  499  git log
+
+[start making blogger.js and explain how that went lol]
