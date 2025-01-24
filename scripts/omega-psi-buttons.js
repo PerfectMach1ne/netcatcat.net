@@ -10,7 +10,6 @@ if (window.location.pathname == "/view/omega-psi.html") {
   button_ids.forEach((id_str) => {
     let button = document.getElementById(id_str);
     button.addEventListener("click", () => {
-      console.log(buttMap.get(id_str));
       location.href = buttMap.get(id_str);
     })
   });
