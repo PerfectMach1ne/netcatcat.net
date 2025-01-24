@@ -3,20 +3,44 @@ function parseMicroMd(str) {
   let char = iterator.next();
   let newHTML = '';
   let registers = {
-    h: 0, // header
-    hcl: 0, // header closing
-    bi: 0, // bold and italic <em> || <strong>
-    bic: 0, // bold and italic closing
-    pre: 0, // preformatted text <pre></pre> 
-    q: 0, // quote
-    ulin: 0, // unordered list init <ul>
-    ulit: 0, // unordered lsit item <li></li>
+    h: 0, // header <hn> n ∈ [1,6]
+    hcl: 0, // header closing </hn> n ∈ [1,6]
     emsp: 0, // Tab char to &emsp;
+    p: 0, // paragraph <p>
+    pcl: 0, // paragraph closing </p>
+    n: 0 // newline register
+    // bi: 0, // bold and italic <em> || <strong>
+    // bic: 0, // bold and italic closing
+    // pre: 0, // preformatted text <pre></pre> 
+    // q: 0, // quote
+    // ulin: 0, // unordered list init <ul>
+    // ulit: 0, // unordered lsit item <li></li>
   }
   const htmlEsc = ['<', '>', '&', '\'', '"', '–', '—'];
   
+  // new idea:
+  // -> split into lines by '\n'
+  // -> then analyze them char-by-char
+  
   // here go mini-markdown mini-parser with char.value!
   while (!char.done && char.value !== undefined) {
+    function appendHTML(str) {
+      newHTML += str;
+      char = iterator.next();
+    }
+
+    // Escape HTML character entities
+    if (htmlEsc.includes(char.value)) {
+      switch (char.value) {
+        case '<': appendHTML('&lt;'); continue;
+        case '>': appendHTML('&gt;'); continue;
+        case '&': appendHTML('&amp;'); continue;
+        case '\'': appendHTML('&apos;'); continue;
+        case '"': appendHTML('&quot;'); continue;
+        case '–': appendHTML('&ndash;'); continue;
+        case '—': appendHTML('&mdash;'); continue;
+      }
+    }
     // Check for header symbols
     if (char.value == '#') {
       registers.h += 1;
@@ -49,23 +73,34 @@ function parseMicroMd(str) {
       newHTML += '</h' + registers.hcl + '>';
       registers.h = 0;
       registers.hcl = 0;
+      // Account for paragraph cleanup.
+      registers.p = 0;
+      registers.pcl = 0;
     // '#' char release condition and header register reset
-    } else if (registers.h > 0 && char.value != ' ' && char.value != '\n') {
-      newHTML += '#'.repeat(registers.h);
-      registers.h = 0;
+    } else if (char.value != '\n') {
+      if (registers.h > 0 && char.value != ' ') {
+        newHTML += '#'.repeat(registers.h);
+        registers.h = 0;
+      }
     }
 
-    // Escape HTML character entities
-    if (htmlEsc.includes(char.value)) {
-      switch (char.value) {
-        case '<': newHTML += '&lt;'; char = iterator.next(); continue;
-        case '>': newHTML += '&gt;'; char = iterator.next(); continue;
-        case '&': newHTML += '&amp;'; char = iterator.next(); continue;
-        case '\'': newHTML += '&apos;'; char = iterator.next(); continue;
-        case '"': newHTML += '&quot;'; char = iterator.next(); continue;
-        case '–': newHTML += '&ndash;'; char = iterator.next(); continue;
-        case '—': newHTML += '&mdash;'; char = iterator.next(); continue;
+    // Paragraph closing tag pre-trigger
+    if (char.value != '\n') {
+      if (registers.p > 0) {
+        registers.pcl = 1;
       }
+    } else if (char.value == '\n') {
+      // Paragraph closing tag trigger (newline encountered after pre-trigger)
+      if (registers.pcl == 1) {
+        newHTML += '</p>'
+        registers.p = 0;
+        registers.pcl = 0;
+      }
+      // Paragraph tag trigger
+      registers.p += 1;
+      if (registers.p == 1) newHTML += '<p>';
+      char = iterator.next();
+      continue;
     }
     
     // Untriggered register cleanup
@@ -74,6 +109,10 @@ function parseMicroMd(str) {
     newHTML += char.value;
     char = iterator.next();
   }
+  
+  // Nooby fix: strip it all <p></p>'s and <p><hn>'s we can catch.
+  newHTML = newHTML.replaceAll(new RegExp("<p><h", "g"), '<h');
+  newHTML = newHTML.replaceAll('<p></p>', '');
 
   return newHTML;
 }
@@ -83,7 +122,7 @@ function selectPost() {
 }
 
 async function getPost() {
-  await fetch('../posts/0000_postidea2.txt', { 
+  await fetch('../posts/0000.txt', { 
     'Content-Type': 'text/plain ',
     })
     .then((res) => {
