@@ -1,6 +1,15 @@
 # 81 seconds to midnight
-## This is what we get for letting they play with matches.
+## This is what we get for letting them play with matches.
 
   That sure is one dark way to open up a blog, that was originally meant to only cover lighthearted topics surrounding programming, sysadmin stuff and computing in general.\
-But, that said, I feel obliged to highlight that I am by no means a pessimist or a "doomer". Quite the opposite, in fact - if I were to describe my view on this world in "conputer" metaphors, I'd say my software is **optimism**, wrapped around a huge suite of TDD tests and an entire coherent CI/CD pipeline with infrastructure backups set up in case of any and all disasters possible, all together known as **realism**.
+But, that said, I feel obliged to highlight that I am by no means a pessimist or a "doomer". Quite the opposite, in fact - if I were to describe my view on this world in "conputer" metaphors, I'd say my software is **optimism**, wrapped around a huge suite of TDD tests and an entire coherent CI/CD pipeline with infrastructure backups set up in case of any and all disasters possible, all together known as **realism** (don't ask me about what my hardware is, I don't even know anymore).
+
+---
+
+#### My antisocials
+
+Public PGP key :: 3F91721FF4B53A604D8722CFE77F29ABDABD4828\
+Mail (Gmail, personal) :: starflowerr777@gmail.com\
+GitHub :: PerfectMach1ne\
+Discord :: @starrflowerr\
 
