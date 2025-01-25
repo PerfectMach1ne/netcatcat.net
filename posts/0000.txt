@@ -1,7 +1,6 @@
-# So this begins
+# 81 seconds the midnight
+## This is what we get for letting they play with matches.
 
-oh my gods
-help<><>#@$;'%^&*
-\\\
-### <>blabp\
-####### a huh
+  That sure is one dark way to open up a blog, that was originally meant to only cover lighthearted topics surrounding programming, sysadmin stuff and computing in general.\
+But, that said, I feel obliged to highlight that I am by no means a pessimist or a "doomer". Quite the opposite, in fact - if I were to describe my view on this world in "conputer" metaphors, I'd say my software is **optimism**, wrapped around a huge suite of TDD tests and an entire coherent CI/CD pipeline with infrastructure backups set up in case of any and all disasters possible, all together known as **realism**.
+
