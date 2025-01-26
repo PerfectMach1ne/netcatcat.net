@@ -4,6 +4,11 @@
   That sure is one dark way to open up a blog, that was originally meant to only cover lighthearted topics surrounding programming, sysadmin stuff and computing in general.\
 But, that said, I feel obliged to highlight that I am by no means a pessimist or a "doomer". Quite the opposite, in fact - if I were to describe my view on this world in "conputer" metaphors, I'd say my software is **optimism**, wrapped around a huge suite of TDD tests and an entire coherent CI/CD pipeline with infrastructure backups set up in case of any and all disasters possible, all together known as **realism** (don't ask me about what my hardware is, I don't even know anymore).
 
+  As I'm writing this, I have the privilege and luck of being able to wait for a bus to the city centre for only 20 minutes, and ponder on how despite the mess that both the world and my life is, my biggest worry right now is *"how in the hell and heaven do I bridge the gap between many thoughts that pop in and out of existence in my mind across the day and a blog post exposed to the public internet?"*\
+But, as the headers of this post have foreshadowed, I had originally wanted to write about my thoughts and feelings on the state of the world right now.\
+I most certainly have nothing informative of value to say on the matter—that feels like the role of people with much more publicity, courage and domain knowledge to speak on "The Serious Topics" to an audience of some kind. Myself I don't really have an 'audience' that expects me to share my voice on sometjong, besides of course a handful of long time friends I like to talk to over the internet.\
+But that is an activity much more comfortable and convenient to do across private messaging platforms.
+
 ---
 
 #### My antisocials
